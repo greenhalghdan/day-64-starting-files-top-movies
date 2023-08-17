@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Movie{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="heading">Select Movie</h1>
+  <p>
+    <a href="#"> MOVIE TITLE - MOVIE RELEASE DATE</a>
+      <table>
+        <tbody>
+
+            {% for movie in data: %}
+
+            <tr>
+
+            <td><a href="{{ url_for('newfilm', id=movie['id']) }}">{{movie['id']}}</a>></td>
+            <td>{{ movie["original_title"].strip() }}</td>
+            <td>{{ movie["release_date"].strip() }}</td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+
+        </table>
+  </p>
+
+</div>
+{% endblock %}
